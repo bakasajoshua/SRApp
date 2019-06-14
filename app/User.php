@@ -41,4 +41,12 @@ class User extends Authenticatable
         // dd($this->id);
         return $this->hasMany('App\Sales', 'user_id');
     }
+
+    public function children(){
+        return $this->hasMany('App\User', 'parent_id');
+    }
+
+    public function parent(){
+        return $this->belongsTo('App\User', 'parent_id');
+    }
 }

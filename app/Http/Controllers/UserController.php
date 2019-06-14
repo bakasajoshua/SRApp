@@ -14,8 +14,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $title='SRApp';
-        return view('home')->with('title', $title);
+        // $title='SRApp';
+        // return view('home')->with('title', $title);
+        $user = auth()->user();
+        if($user->user_type_id == 1) {return redirect('/sales1');}
+        if ($user->user_type_id == 2) {return redirect('/sales2');}
+        if ($user->user_type_id == 3) {return redirect('/sales3');}
     }
 
     /**
