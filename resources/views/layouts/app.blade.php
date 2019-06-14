@@ -78,6 +78,7 @@
         <main class="py-4">
             @include('inc.messages')
             @yield('content')
+            @include('inc.navbar')
         </main>
     </div>
 </body>
