@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sales;
 
-class Managercontroller extends Controller
+class ManagerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +14,13 @@ class Managercontroller extends Controller
      */
     public function index()
     {   
-        $user_id=auth()->user()->id;
-        $sales=Sales::where('user_id', $user_id)->get();
+        $user=auth()->user();
+        foreach($user->children as $child){
+            $child->children;
+        }
+        $sales=Sales::where('user_id', $user->id)->get();
         // $sales=Sales::all();
-        return view('salesrep.salesrep')->with('sales', $sales);
+        return view('manager.manager')->with('sales', $sales);
 
     }
 

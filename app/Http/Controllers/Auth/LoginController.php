@@ -25,16 +25,10 @@ class LoginController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = '/sales';
-    protected function redirectTo(){
-        $user = auth()->user();
-        if($user->user_type_id == 1)
-            return '/sales1';
-        else if ($user->user_type_id == 2)
-            return '/sales2';
-        else if ($user->user_type_id == 3)
-            return '/sales3';
-    }
+    protected $redirectTo = '/home';
+    // protected function redirectTo(){
+    //     return $this->set_session();
+    // }
 
 
     /**
@@ -45,5 +39,14 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    private function set_session() {
+        $user = auth()->user();
+        // dd($user);
+        // return '/manager';
+        if($user->user_type_id == 1) {return '/manager';}
+        if ($user->user_type_id == 2) {return '/sup';}
+        if ($user->user_type_id == 3) {return '/sales';}
     }
 }
