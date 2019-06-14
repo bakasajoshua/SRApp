@@ -21,8 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('user_type_id')->unsigned()->nullable();
             $table->integer('team_id')->unsigned()->nullable();
-            $table->double('sales')->nullable();
-            $table->double('commission')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
