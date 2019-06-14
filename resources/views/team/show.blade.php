@@ -1,20 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    @foreach ($parents as $parent)
-        <div>
-            {{$parent->children}}
-        </div>
-        
-    @endforeach
-    {{-- @foreach ($user->children as $child->name){
-        <div>
-            {{$child->children}}
-        </div>
-        
-    } --}}
     
-        
+    @foreach ($user->children as $child)
+        <div>
+            <label>Email: {{ $child->email }}</label>
+            <label>Name: {{ $child->name }}</label>
+            @foreach ($child->children as $grand)
+                <div>
+                    <label>Email: {{ $grand->email }}</label>
+                    <label>Name: {{ $grand->name }}</label>
+                </div>
+            @endforeach
+        </div>
     @endforeach
     
 @endsection

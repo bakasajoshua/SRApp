@@ -62,8 +62,8 @@ class TeamController extends Controller
      */
     public function show($id = null)
     {
-        $user=auth()->user()->id;
-        $parents=$user->children->name;
+        $user=auth()->user();
+        // $parents=$user->children->name;
 
         
         return view('team.show', compact('user'))
