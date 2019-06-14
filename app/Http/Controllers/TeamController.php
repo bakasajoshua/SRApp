@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\User;
 use App\UserType;
 use App\Team;
+use App\Commission;
+use App\Sales;
+
 
 class TeamController extends Controller
 {
@@ -64,7 +67,8 @@ class TeamController extends Controller
     {
         $user=auth()->user();
         // $parents=$user->children->name;
-
+        // $sales=Sales::all();
+        // $commission=Commission::all();
         
         return view('team.show', compact('user'))
         // ->with('user', $user)->with('users', $users)
