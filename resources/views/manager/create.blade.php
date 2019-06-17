@@ -4,7 +4,7 @@
     <h1>Post Sales</h1>
     <div class="form-group row">
         <div class="col-md-8 col-md-offset-2">
-            <form method="POST" action="{{ url('sales') }}">
+            <form method="POST" action="{{ url('sales1/store') }}">
                 @csrf
                 {{-- <div class="form-group row"> --}}
                     <div class="form-group">

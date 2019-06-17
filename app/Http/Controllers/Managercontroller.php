@@ -44,17 +44,16 @@ class ManagerController extends Controller
     {
         // $user_id=auth()->user()->id;
         $this->validate($request,[
-            'user_id'=>'required',
             'product'=>'required',
             'price'=>'required',
         ]);
         $sale = new Sales;
-        $sale->user_id= $request->input('user_id');
+        $sale->user_id= auth()->user()->id;
         $sale->product= $request->input('product');
         $sale->price= $request->input('price');
         $sale->save();
 
-        return redirect('/sales')->with('success', 'Sales Made');
+        return redirect('/sales1')->with('success', 'Sales Made');
 
     }
 

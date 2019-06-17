@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sales;
 
 class SupervisorController extends Controller
 {
@@ -40,12 +41,11 @@ class SupervisorController extends Controller
     {
         // $user_id=auth()->user()->id;
         $this->validate($request,[
-            'user_id'=>'required',
             'product'=>'required',
             'price'=>'required',
         ]);
         $sale = new Sales;
-        $sale->user_id= $request->input('user_id');
+        $sale->user_id= auht()->user()->id;
         $sale->product= $request->input('product');
         $sale->price= $request->input('price');
         $sale->save();
